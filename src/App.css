@@ -2,6 +2,63 @@
   text-align: center;
 }
 
+.searchField {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  background-color: #e3eeff;
+  padding: 10px;
+}
+
+.filterField {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #e3eeff;
+  padding: 10px;
+}
+
+.emptyTable{
+
+}
+
+.filterCells {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filterDropdown {
+  margin-right: 10px;
+  width: 250px;
+  align-items: center;
+}
+
+label.MuiFormControlLabel-root {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0px;
+  margin-right: 0px;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.MuiFormGroup-root.radioGroup {
+  margin-top: 10px;
+  display: block;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.referenceDropdown {
+  margin-top: 30px;
+  width: 300px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -12,7 +69,10 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+/*.MuiDialog-scrollPaper{*/
+/*  justify-content: flex-start !important;*/
+/*  align-items: flex-start !important;*/
+/*}*/
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,6 +83,66 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.tableCell{
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+  border-radius: 5px;
+}
+.body{
+  background: #f9f9f9;
+  font-family: "Roboto", sans-serif;
+}
+
+.tableRow{
+  border-spacing: 0 100000px !important;
+  border-collapse: separate !important;
+}
+
+/*.dropbtn {*/
+/*  background-color: #3498DB;*/
+/*  color: white;*/
+/*  padding: 16px;*/
+/*  font-size: 16px;*/
+/*  border: none;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*!* Dropdown button on hover & focus *!*/
+/*.dropbtn:hover, .dropbtn:focus {*/
+/*  background-color: #2980B9;*/
+/*}*/
+
+/*!* The container <div> - needed to position the dropdown content *!*/
+/*.dropdown {*/
+/*  !*display: block;*!*/
+/*  position: relative;*/
+/*  display: inline-block;*/
+/*}*/
+
+/*!* Dropdown Content (Hidden by Default) *!*/
+/*.dropdown-content {*/
+/*  display: none;*/
+/*  position: absolute;*/
+/*  background-color: #f1f1f1;*/
+/*  min-width: 160px;*/
+/*  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+/*  z-index: 1;*/
+/*}*/
+
+/*!* Links inside the dropdown *!*/
+/*.dropdown-content a {*/
+/*  color: black;*/
+/*  padding: 12px 16px;*/
+/*  text-decoration: none;*/
+/*  display: block;*/
+/*}*/
+
+/*!* Change color of dropdown links on hover *!*/
+/*.dropdown-content a:hover {background-color: #ddd;}*/
+
+/*!* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) *!*/
+/*.show {display:block;}*/
+
+
 
 .App-link {
   color: #61dafb;
