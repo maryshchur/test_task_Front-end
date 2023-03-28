@@ -1,115 +1,70 @@
-import React from "react";
-import {makeStyles} from "@mui/styles";
-import {AppBar, Button, Menu, MenuItem, Toolbar} from "@mui/material";
+import React, {Component} from "react";
+import {AppBar,Toolbar} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import {AccountCircle} from "@mui/icons-material";
-import {Link} from "react-router-dom";
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import UserCreate from "./userCreate";
 
-
-const Header = (props) => {
-
-    const useStyles = makeStyles(theme => ({
-        root: {
-            flexGrow: 1,
-        },
-        menuButton: {
-            marginRight:2,
-        },
-        title: {
-            justifyContent: "space-between",
-        },
-        link: {
-            flexGrow: 1,
-        },
-    }));
-
-    const linkStyle = {
-        textDecoration: 'none'
+class Header extends Component {
+    state = {
+        openMoreInfoDialog: false,
+        openDeleteDialog: false,
+        anchorEl: null,
+        openDialog: false
     }
 
-    const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-
-    const handleMenu = event => {
-        setAnchorEl(event.currentTarget);
+   handleClose = () => {
+        this.setState({openDialog: false})
+       console.log("CLOSE")
+    };
+     refreshPage = () => {
+        window.location.reload(false);
+    }
+    handleOpen = () => {
+        this.setState({openDialog: true})
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
-    const logoutUser = () => {
-        sessionStorage.removeItem('authorization');
-        // sessionStorage.removeItem('refreshToken');
-        sessionStorage.removeItem('userrole');
-        window.location.href = "/";
-    };
-
-    const userLoggedIn = (
-        <div>
-            <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
+    render() {
+        return (
+            <div
             >
-                <AccountCircle />
-            </IconButton>
-            <Menu
-                id="menu-appbar"
-                // anchorEl={}
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                keepMounted
-                // transformOrigin={{anchorEl
-                //     vertical: 'top',
-                //     horizontal: 'right',
-                // }}
-                open={open}
-                onClose={handleClose}
-            >
-                {/*<Hidden mdUp={sessionStorage.getItem('userrole') === "ROLE_GUEST"}>*/}
-                <MenuItem><Link to="/profile" style={linkStyle}>My Profile</Link></MenuItem>
-                {/*// </Hidden>*/}
-                <MenuItem onClick={logoutUser}>Logout</MenuItem>
-            </Menu>
-        </div>
-    );
+                <AppBar position="static" style={{background: 'grey'}}>
+                    <Toolbar style={{justifyContent: 'right'}}
+                    >
+                        <div>
+                            <IconButton
+                                color="black"
+                                onClick={this.handleOpen}
+                            >
+                                <PersonAddAltIcon/>
+                            </IconButton>
 
-    const userNotLoggedIn = (
-        <div>
-            <Link to="/"><Button style={{ color: '#FFF' }}>Sign In</Button></Link>
-            <Link to="/registration"><Button style={{ color: '#FFF' }}>Sign Up</Button></Link>
-        </div>
-    );
+                            <Dialog
+                                fullWidth={true}
+                                maxWidth={'xs'}
+                                    onClose={this.handleClose}
+                                    aria-labelledby="simple-dialog-title"
+                                    open={this.state.openDialog}
+                            style={{
+                                justifyContent: 'center',
+                                alignItems: 'center !important' }}
 
-    const adminLinks = (
-        <Link to="/admin-panel"><Button style={{ color: '#FFF' }}>Admin Panel</Button></Link>
-    );
+                            >
+                                <DialogTitle id="simple-dialog-title"
+                                             style = {{textAlign: 'center'}}
+                                >Create new user</DialogTitle>
+                                <UserCreate handleClose={this.handleClose}
+                                            refreshPage = {this.refreshPage}
+                                />
 
-    const managerLinks = (
-        <div>
-            <Link to="/home-page"><Button style={{ color: '#FFF' }}></Button></Link>
-        </div>
-    );
-
-    return (
-        <div
-            className={classes.root}
-        >
-            <AppBar position="static" style={{ background: '#64b5f6' }}>
-                <Toolbar
-                    className={classes.title}
-                >
-                    {headerLinks}
-                </Toolbar>
-            </AppBar>
-        </div>
-    );
+                            </Dialog>
+                        </div>
+                    </Toolbar>
+                </AppBar>
+            </div>
+        );
+    }
 };
 
 export default Header;
