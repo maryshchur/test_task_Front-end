@@ -91,7 +91,7 @@ label.MuiFormControlLabel-root {
 }
 
 .all-users-view__table {
-    border-spacing: 0.5rem 0.7rem;
+    border-spacing: 0.1rem 0.7rem;
     border-collapse: separate;
     width: 100%;
     background: #f9f9f9;
@@ -99,10 +99,10 @@ label.MuiFormControlLabel-root {
 .user-create__form-control{
     align-items: center;
 }
-.img{
-    height: 55px!important;
-    width: 55px!important;
-}
+/*.img{*/
+/*    height: 55px!important;*/
+/*    width: 55px!important;*/
+/*}*/
 
 .all-users-view {
     width: 85%;

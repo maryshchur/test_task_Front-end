@@ -104,8 +104,7 @@ class UserItem extends Component {
                         <div style={{display: 'flex', alignItems: 'center'}}>
                             <div>
                               {/*//TODO  generate full url on back with modelMapper*/}
-                                <Avatar src={url}/>
-                                {/*<Avatar src="http://localhost:8090/images/tropical_island_desktop_background_020.jpg" ></Avatar>*/}
+                                <Avatar src={url} sx={{ width: 56, height: 56 }} />
                             </div>
                             <div style={{fontFamily: 'Roboto'}}>
                                 <div style={{
@@ -115,17 +114,10 @@ class UserItem extends Component {
                                     flexDirection: 'column'
                                 }}>
                                     <div style={{fontWeight: 'bold'}}>
-                                        {/*fontSize: '1.25rem',*/}
-                                        {/*    <h5>*/}
-                                        {/*      style={{  fontWeight: 'bold'}}>*/}
                                         {this.props.item.firstName} {this.props.item.lastName}
-                                        {/*</h5>*/}
                                     </div>
                                     <div style={{color: 'coral !important'}}>
-                                        {/*#6c757d*/}
-                                        {/*<p>*/}
                                         {this.props.item.email}
-                                        {/*</p>*/}
                                     </div>
                                 </div>
                             </div>
@@ -147,11 +139,11 @@ class UserItem extends Component {
                     <TableCell align="left">
                         <Button
                             type="submit"
-                             fullWidth
+                             //fullWidth
                             variant="contained"
-                            // color="primary"
-                            size="medium"
-                            class = "btn-primary"
+                            color="primary"
+                            size="small"
+                            // class = "btn-primary"
                             // onClick={this.getData}
                         >
                             Contact
